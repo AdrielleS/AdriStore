@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color ="primary">
+    <ion-title>
+      Estoque
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item-sliding *ngFor ="let product of products | async">
+  
+          <ion-item>
+            
+            <h1>{{product.name}}</h1>
+            <p>Descrição: {{ product.description }}</p>
+            <p>Código: {{ product.code }}</p>
+            <p>Quantidade: {{ product.quantity }}</p>
+            <p>Preço: {{ product.price }}</p>
+          </ion-item>
+       
+  
+          <ion-item-options side= "left">
+            <button ion-button color="secondary" (click) ="editProduct(product)">
+                <ion-icon name="create"></ion-icon>
+            </button>
+  
+            <button ion-button color="danger" (click) ="removeProduct(product.key)">
+                <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        
+      </ion-list>
+      <ion-fab bottom right>
+      <button ion-fab color="primary" (click)="newProduct()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+</ion-content>

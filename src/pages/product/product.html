@@ -1,0 +1,76 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form [formGroup]="form">
+
+        <ion-item>
+          <ion-label>Nome:</ion-label>
+          <ion-input type ="text" formControlName = "name"></ion-input>
+        </ion-item>  
+        <ion-item *ngIf ="!form.controls.name.valid && 
+        (form.controls.name.dirty || form.controls.name.rouched)" color ="danger">
+          <div [hidden] = "!form.controls.name.errors.required">
+            O campo é obrigatório
+          </div> 
+        </ion-item>
+    
+        <ion-item>
+            <ion-label>Descrição:</ion-label>
+            <ion-input type ="description" formControlName = "description"></ion-input>
+          </ion-item>
+          <ion-item *ngIf ="!form.controls.description.valid && 
+          (form.controls.description.dirty || form.controls.description.rouched)" color ="danger">
+            <div [hidden] = "!form.controls.description.errors.required">
+              O campo é obrigatório
+            </div> 
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Código:</ion-label>
+              <ion-input type ="code" formControlName = "code"></ion-input>
+            </ion-item>
+          <ion-item *ngIf ="!form.controls.code.valid && 
+          (form.controls.code.dirty || form.controls.code.rouched)" color ="danger">
+            <div [hidden] = "!form.controls.code.errors.required">
+              O campo é obrigatório
+            </div> 
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Quantidade:</ion-label>
+              <ion-input type ="quantity" formControlName = "quantity"></ion-input>
+            </ion-item>
+          <ion-item *ngIf ="!form.controls.quantity.valid && 
+          (form.controls.quantity.dirty || form.controls.quantity.rouched)" color ="danger">
+            <div [hidden] = "!form.controls.quantity.errors.required">
+              O campo é obrigatório
+            </div> 
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Preço:</ion-label>
+              <ion-input type ="price" formControlName = "price"></ion-input>
+            </ion-item>
+          <ion-item *ngIf ="!form.controls.price.valid && 
+          (form.controls.price.dirty || form.controls.price.rouched)" color ="danger">
+            <div [hidden] = "!form.controls.price.errors.required">
+              O campo é obrigatório
+            </div> 
+          </ion-item>
+    
+          <div padding>
+            <button ion-button block type="submit"[disabled]= "!form.valid" 
+            (click) ="onSubmit()">Salvar</button>
+          </div>
+      </form>
+    
+
+</ion-content>
